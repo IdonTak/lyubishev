@@ -28,11 +28,13 @@ public class LifeLogService extends EntityService {
 		return "LifeLog";
 	}
 
+	//server side filtering
 	@Override
 	protected boolean useFilter() {
-		return false;
+		return true;
 	}
 
+	
 	@Override
 	protected String getIdValue(Map<String, Object> map) {
 //		return (String) map.get("id");
@@ -57,7 +59,7 @@ public class LifeLogService extends EntityService {
 
 	@Override
 	protected void onSave(Entity entity, Map<String, Object> map, DatastoreService datastore) throws Exception {
-		entity.setProperty("user_id", map.get("user_id"));
+		//entity.setProperty("user_id", map.get("user_id"));
 		entity.setProperty("from", map.get("from"));
 		entity.setProperty("to", map.get("to"));
 		entity.setProperty("category", map.get("category"));
